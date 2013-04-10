@@ -46,7 +46,6 @@ public class LRUFixedSizeCache<K, V> extends FixedSizeCache<K, V> {
             return null;
         }
 
-        keys.remove(key);
         keys.put(key, System.currentTimeMillis());
 
         return map.get(key);
