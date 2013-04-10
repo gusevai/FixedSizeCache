@@ -18,7 +18,12 @@ public class FIFOFixedSizeCache<K, V> extends FixedSizeCache<K, V> {
 
     @Override
     protected void addValue(K key, V value) {
+        if (map.containsKey(key)) {
+            keys.remove(key);
+        }
+
         keys.offer(key);
+
         map.put(key, value);
     }
 

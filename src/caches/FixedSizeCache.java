@@ -24,7 +24,7 @@ public abstract class FixedSizeCache<K, V> implements Cache<K, V> {
 
     @Override
     public void put(K key, V value) {
-        if (map.size() == cacheSize) {
+        if ((map.size() == cacheSize) && (!map.containsKey(key))) {
             removeOutdatedValue();
         }
 
